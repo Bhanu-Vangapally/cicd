@@ -5,7 +5,7 @@ pipeline {
         // Define Docker Hub credentials ID
         DOCKERHUB_CREDENTIALS = 'dockerhub'
         // Define Docker image details
-        DOCKER_IMAGE = 'swetha328/myhtmlapp1'
+        DOCKER_IMAGE = 'vangapallybhanu6659/myhtmlapp1'
         // Define Docker container name
         CONTAINER_NAME = 'mycontainer'
     }
@@ -14,7 +14,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout code from Git repository
-                git branch: 'main', url: 'https://github.com/swethacse20/cicd.git'
+                git branch: 'main', url: 'https://github.com/Bhanu-Vangapally/cicd.git'
             }
         }
 
@@ -32,7 +32,7 @@ pipeline {
                 // Push Docker image to Docker Hub
                 script {
                     docker.withRegistry('', 'dockerhub') {
-                        docker.image('swetha328/myhtmlapp1').push()
+                        docker.image('vangapallybhanu6659/myhtmlapp1').push()
                     }
                 }
             }
@@ -43,7 +43,7 @@ pipeline {
                 // Pull Docker image from Docker Hub
                 script {
                    docker.withRegistry('', 'dockerhub') {
-                        docker.image('swetha328/myhtmlapp1').pull()
+                        docker.image('vangapallybhanu6659/myhtmlapp1').pull()
                 }
             }
           }
@@ -53,7 +53,7 @@ pipeline {
                 // Run Docker container
                script {
                     docker.withRegistry('', 'dockerhub') {
-                        docker.image('swetha328/myhtmlapp1').run('-d -p 8089:80 --name mycontainer')
+                        docker.image('vangapallybhanu6659/myhtmlapp1').run('-d -p 8089:80 --name mycontainer')
                     }
                 }
             }
