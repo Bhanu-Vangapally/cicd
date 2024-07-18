@@ -7,7 +7,7 @@ pipeline {
         // Define Docker image details
         DOCKER_IMAGE = 'vangapallybhanu6659/myhtmlapp1'
         // Define Docker container name
-        CONTAINER_NAME = 'mycontainer1'
+        CONTAINER_NAME = 'mycontainer2'
     }
 
     stages {
@@ -53,7 +53,7 @@ pipeline {
                 // Run Docker container
                script {
                     docker.withRegistry('', 'dockerhub') {
-                        docker.image('vangapallybhanu6659/myhtmlapp1').run('-d -p 8092:80 --name mycontainer1')
+                        docker.image('vangapallybhanu6659/myhtmlapp1').run('-d -p 8093:80 --name mycontainer2')
                     }
                 }
             }
